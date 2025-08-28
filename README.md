@@ -1,7 +1,7 @@
-# chronos
+# Chronos
 This will be the repository where "chronos" will be put on as open-source, with instructions on how to set it up.
 
-# what is chronos?
+# What is Chronos?
 Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
 
 Below is a tutorial on how to experiment with the bot system.
