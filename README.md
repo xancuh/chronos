@@ -4,16 +4,10 @@ This will be the repository where "chronos" will be put on as open-source, with 
 # What is Chronos?
 Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
 
-Below is a tutorial on how to experiment with the bot system.
-
-# Hosting the source
-
 > [!NOTE]
 > You may use this source to learn and privately host your source to friends or to a small community. We do not recommend hosting this publicly.
 
 ## Dependencies:
-
---
 
 Node.js: ```https://nodejs.org/dist/v18.16.1/node-v18.16.1-x64.msi```
 
@@ -23,7 +17,7 @@ PostgreSQL: ```https://sbp.enterprisedb.com/getfile.jsp?fileid=1258627```
 
 Go: ```https://go.dev/dl/go1.20.6.windows-amd64.msi```
 
---
+# Setup
 
 0: Install all of the dependencies, run them. When installing PostgreSQL, make sure to remember the credentials you set in the setup. This will be used in the next part.
 
