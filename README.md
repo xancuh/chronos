@@ -9,6 +9,73 @@ Below is a tutorial on how to experiment with the bot system.
 # Hosting the source
 
 > [!NOTE]
-> You may use this source to learn and privately host your source to friends or to a small community (make sure you have **dedicated** servers to do this, min. 24gb of ram, bare min. 12gb ram. it will run really **REALLY** slow on 12gb ram, but will run somewhat fine on 24gb ram.). I do not trust this source fully, so run this at your own risk.
+> You may use this source to learn and privately host your source to friends or to a small community. We do not recommend hosting this publicly.
 
+## Dependencies:
 
+--
+
+Node.js: ```https://nodejs.org/dist/v18.16.1/node-v18.16.1-x64.msi```
+
+PostgreSQL: ```https://sbp.enterprisedb.com/getfile.jsp?fileid=1258627```
+
+.NET 6: ```https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-6.0.412-windows-x64-installer```
+
+Go: ```https://go.dev/dl/go1.20.6.windows-amd64.msi```
+
+--
+
+0: Install all of the dependencies, run them. When installing PostgreSQL, make sure to remember the credentials you set in the setup. This will be used in the next part.
+
+1. Create a PG user, DB, and open pgAdmin 4. Start up everything, open ```config.json``` in services/api and put your credentials in there.
+
+2. Install nodejs, go (lang), and dotnet 6. go into the services/api directory in a terminal, run "npm i", then run "npx knex migrate:latest".
+
+3. Go into the services/Roblox/Roblox.Website folder and open "appsettings.json". Put in your DB info and any other configurable things. Also make sure to edit the "Directories" stuff (change "C:/Users/Administrator/Downloads/Chronos/services..." to the exact path of the unzipped source code, i.e. the path this README file is in by using Ctrl+H). Make sure to change every single auth string to your custom one. Remember these since they are useful in the future parts.
+
+4. Go into the "services/Roblox/Roblox.Website" folder in a terminal, and run "dotnet run --configuration Release". If everything is successful, you should be able to visit the site at "http://localhost:5000/".
+
+5. Start up the "admin" service by opening a new terminal, going into the "services/admin" folder, and running "npm i" then "npm run dev".
+
+6. Open "services/2016-roblox-main/config.json" and replace ```https://chrns.vip/``` to your domain or ```http://localhost:5000/```. If you are using your domain, then please use ```https://your.domain/``` for the items and stuff to work properly.
+
+7. Register an account, then go to"http://localhost:5000/admin/" and create 2 new accounts: ```UGC``` with any password with the ID of **2**. Go to "Players" and select UGC and "Nullify Password". Then create a new account named ```BadDecisions``` with any password with the id of **12** and nullify the password again.
+
+8. In order to upload things, you will have to start up the "asset validation service". You can do this by going into "services/AssetValidationServiceV2" in a terminal and running "go run main.go".
+
+9. Go to "services/game-server" and edit config.json to this:
+```
+{
+    "rcc": "C:\\Users\\your-username\\Downloads\\Chronos\\services\\RCCService\\",
+    "authorization": "enter render auth here from appsettings.json",
+    "baseUrl": "http://localhost:5000",
+    "rccPort": 64989,
+    "port": 3040,
+    "websiteBotAuth": "enter bot auth here from appsettings.json",
+    "thumbnailWebsocketPort": 3189,
+    "dockerDisabled": true
+}
+```
+
+10. Go to "services/game-server" in a new terminal, and run "npm i", then "npm run build".
+
+11. I am not going into depth on how to patch the RCCService to match your domain. But just run "runall.bat" and you should be all good!
+
+# Common fixes:
+
+Application still pending:
+```
+[HttpGet("/acceptapp")]
+        public async Task<dynamic> acceptapp()
+        {
+            await services.users.ProcessApplication("your-application-id-from-the-site", 1, UserApplicationStatus.Approved);
+            return new { };
+        }
+```
+You must go to "services/Roblox/Roblox.Website/Controllers/Internal" and open "BypassController.cs" and place it anywhere (near below the script).
+
+Roblox Main UI not loading:
+
+This is simple. Edit the ```config.json``` in "services/2016-roblox-main" to match your localhost domain instead of your actual domain. For example: ```"baseUrl":"https://localhost:3000/","apiFormat":"https://localhost:3000/apisite/{0}{1}"```
+
+Any more issues, contact @700service.exe
