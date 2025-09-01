@@ -19,8 +19,7 @@ Go: ```https://go.dev/dl/go1.20.6.windows-amd64.msi```
 
 # Setup
 
-0: Install all of the dependencies, run them. When installing PostgreSQL, make sure to remember the credentials you set in the setup. This will be used in the next part.
-
+Install all of the dependencies, run them. When installing PostgreSQL, make sure to remember the credentials you set in the setup. This will be used in the next part.
 
 1. Create a PG user, DB, and open pgAdmin 4. Start up everything, open ```config.json``` in services/api and put your credentials in there.
 
