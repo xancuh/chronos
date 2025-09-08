@@ -23,23 +23,23 @@ Download the source from Releases.
 
 Install all of the dependencies, run them. When installing PostgreSQL, make sure to remember the credentials you set in the setup. This will be used in the next part.
 
-1. Create a PG user, DB, and open pgAdmin 4. Start up everything, open ```config.json``` in services/api and put your credentials in there.
+Create a PG user, DB, and open pgAdmin 4. Start up everything, open ```config.json``` in services/api and put your credentials in there.
 
-2. Install nodejs, go (lang), and dotnet 6. go into the services/api directory in a terminal, run "npm i", then run "npx knex migrate:latest".
+Install nodejs, go (lang), and dotnet 6. go into the services/api directory in a terminal, run "npm i", then run "npx knex migrate:latest".
 
-3. Go into the services/Roblox/Roblox.Website folder and open "appsettings.json". Put in your DB info and any other configurable things. Also make sure to edit the "Directories" stuff (change "C:/Users/Administrator/Downloads/Chronos/services..." to the exact path of the unzipped source code, i.e. the path this README file is in by using Ctrl+H). Make sure to change every single auth string to your custom one. Remember these since they are useful in the future parts.
+Go into the services/Roblox/Roblox.Website folder and open "appsettings.json". Put in your DB info and any other configurable things. Also make sure to edit the "Directories" stuff (change "C:/Users/Administrator/Downloads/Chronos/services..." to the exact path of the unzipped source code, i.e. the path this README file is in by using Ctrl+H). Make sure to change every single auth string to your custom one. Remember these since they are useful in the future parts.
 
-4. Go into the "services/Roblox/Roblox.Website" folder in a terminal, and run "dotnet run --configuration Release". If everything is successful, you should be able to visit the site at "http://localhost:5000/".
+Go into the "services/Roblox/Roblox.Website" folder in a terminal, and run "dotnet run --configuration Release". If everything is successful, you should be able to visit the site at "http://localhost:5000/".
 
-5. Start up the "admin" service by opening a new terminal, going into the "services/admin" folder, and running "npm i" then "npm run dev".
+Start up the "admin" service by opening a new terminal, going into the "services/admin" folder, and running "npm i" then "npm run dev".
 
-6. Open "services/2016-roblox-main/config.json" and replace ```https://chrns.vip/``` to your domain or ```http://localhost:5000/```. If you are using your domain, then please use ```https://your.domain/``` for the items and stuff to work properly.
+Open "services/2016-roblox-main/config.json" and replace ```https://chrns.vip/``` to your domain or ```http://localhost:5000/```. If you are using your domain, then please use ```https://your.domain/``` for the items and stuff to work properly.
 
-7. Register an account, then go to"http://localhost:5000/admin/" and create 2 new accounts: ```UGC``` with any password with the ID of **2**. Go to "Players" and select UGC and "Nullify Password". Then create a new account named ```BadDecisions``` with any password with the id of **12** and nullify the password again.
+Register an account, then go to"http://localhost:5000/admin/" and create 2 new accounts: ```UGC``` with any password with the ID of **2**. Go to "Players" and select UGC and "Nullify Password". Then create a new account named ```BadDecisions``` with any password with the id of **12** and nullify the password again.
 
-8. In order to upload things, you will have to start up the "asset validation service". You can do this by going into "services/AssetValidationServiceV2" in a terminal and running "go run main.go".
+In order to upload things, you will have to start up the "asset validation service". You can do this by going into "services/AssetValidationServiceV2" in a terminal and running "go run main.go".
 
-9. Go to "services/game-server" and edit config.json to this:
+Go to "services/game-server" and edit config.json to this:
 ```
 {
     "rcc": "C:\\Users\\your-username\\Downloads\\Chronos\\services\\RCCService\\",
@@ -55,7 +55,9 @@ Install all of the dependencies, run them. When installing PostgreSQL, make sure
 
 10. Go to "services/game-server" in a new terminal, and run "npm i", then "npm run build".
 
-11. I am not going into depth on how to patch the RCCService to match your domain. But just run "runall.bat" and you should be all good!
+11. Close every running command prompt tab and run ```runall.bat``` in the services folder.
+
+When you're done, it should open 5 command prompts and nothing else and enjoy!
 
 # Common fixes:
 
@@ -69,9 +71,11 @@ Application still pending:
         }
 ```
 You must go to "services/Roblox/Roblox.Website/Controllers/Internal" and open "BypassController.cs" and place it anywhere (near below the script).
+Next, you must restart the command prompt that is running ```dotnet run```. To do this, do CTRL+C then type in the same command. After, visit ```/acceptapp``` on the auth/application page to accept the app instantly!
 
 Roblox Main UI not loading:
 
-This is simple. Edit the ```config.json``` in "services/2016-roblox-main" to match your localhost domain instead of your actual domain. For example: ```"baseUrl":"https://localhost:3000/","apiFormat":"https://localhost:3000/apisite/{0}{1}"```
+This is simple. Edit the ```config.json``` in "services/2016-roblox-main" to match your localhost domain instead of your actual domain. For example: 
+```"baseUrl":"https://localhost:3000/","apiFormat":"https://localhost:3000/apisite/{0}{1}"```
+You may also use ```localhost:5000``` but I recommend the port ```:3000```.
 
-Any more issues, contact @700service.exe
