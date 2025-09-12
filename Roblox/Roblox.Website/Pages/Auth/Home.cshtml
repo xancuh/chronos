@@ -1,0 +1,151 @@
+@page "/auth/home"
+@model Roblox.Website.Pages.Home
+
+@{
+    Layout = "Shared/_Layout";
+}
+
+<style>
+
+    .navbar-auth {
+        margin-bottom: -1px;
+    }
+    body {
+        overflow-x: hidden;
+        font-family: 'Inter', sans-serif;
+    }
+    #carouselIndicators {
+        background: #000;
+    }
+    .carousel-inner {
+        opacity: 0.5;
+    }
+    img.c-home {
+        max-height: 60vh;
+        min-height: 370px;
+        object-fit: cover;
+    }
+    .carousel-text {
+        z-index: 3;
+        position: relative;
+        top: 0;
+        height: 0;
+        overflow: visible;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+        font-family: 'Inter', sans-serif;
+    }
+    .carousel-text h1 {
+        font-size: 5rem;
+        color: #fff;
+        padding-top: 1rem;
+        font-family: 'Inter', sans-serif;
+    }
+    .carousel-text p {
+        color: #fff;
+        font-weight: 500;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    .container-one {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .selling-points > li {
+        margin: 1rem 0;
+    }
+</style>
+
+
+@section MetaTags {
+    <title>Relive 2016 at Chronos.</title>
+    <meta name="description" content="Relive 2016. Free, no invite keys required, and completely browser based. The most secure and private website of its kind."/>
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:url" content="chronos.in" />
+    <meta property="og:title" content="Relive 2016 at Chronos." />
+    <meta property="og:description" content="Relive 2016. Free, no invite keys required, and completely browser based. The most secure and private website of its kind." />
+    <meta property="og:image" content="/UnsecuredContent/roblox_logo.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="carousel-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <center>
+                            <h1>Relive 2016</h1>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="carouselIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="4" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="5" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/UnsecuredContent/ImageFive.webp" class="c-home d-block w-100" alt="An in game screenshot">
+                </div>
+                <div class="carousel-item">
+                    <img src="/UnsecuredContent/ImageOne.webp" class="c-home d-block w-100" alt="An in game screenshot">
+                </div>
+                <div class="carousel-item">
+                    <img src="/UnsecuredContent/ImageTwo.webp" class="c-home d-block w-100" alt="An in game screenshot">
+                </div>
+                <div class="carousel-item">
+                    <img src="/UnsecuredContent/ImageThree.webp" class="c-home d-block w-100" alt="An in game screenshot">
+                </div>
+                <div class="carousel-item">
+                    <img src="/UnsecuredContent/ImageFour.webp" class="c-home d-block w-100" alt="An in game screenshot">
+                </div>
+                <div class="carousel-item">
+                    <img src="/UnsecuredContent/roblox_logo.webp" class="c-home d-block w-100" alt="Our logo">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container container-one">
+    <div class="row">
+        <div class="col-12">
+            <p class="text-center">
+                <a href="/auth/application" class="btn btn-primary">Applications</a>
+                <center>
+                    <a href="discord.gg/eSagdnQbhf" class="btn btn-primary">Discord Server</a>
+                </center>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container container-one">
+    <div class="row">
+        <div class="col-12">
+            <h3>Privacy Taken Seriously.</h3>
+            <ul class="selling-points">
+                <li>
+                    <span class="fw-bolder">You don't have to provide any personal information. </span>The only thing we ask for during the application process is a link to your profile on a social media website such as Twitter or YouTube - this is only done to verify that you are not trying to abuse the site.
+                </li>
+                <li>
+                    <span class="fw-bolder">IP Addresses are hashed and only stored temporarily. </span>Your IP is only stored in a hashed format when you perform certain actions, and it is not directly linked with your website account. Your IP is only ever saved for a maximum of 24 hours, after which it is deleted automatically from where it is stored (usually Redis - IPs are deleted once they expire, which can be between 5 minutes and 24 hours depending on the task you perform).
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

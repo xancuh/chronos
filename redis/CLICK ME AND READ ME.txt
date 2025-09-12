@@ -1,0 +1,2 @@
+1. First, open `install_redis_service` and close it when its finished installing.
+2. Open `redis-server`.
