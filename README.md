@@ -1,5 +1,6 @@
-# Chronos
-This will be the repository where "chronos" will be put on as open-source, with instructions on how to set it up.
+<center>
+    Chronos
+</center>
 
 # What is Chronos?
 Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
@@ -61,7 +62,9 @@ When you're done, it should open 5 command prompts and nothing else and enjoy!
 
 # Common fixes:
 
-Application still pending:
+Below are common fixes to known issues with this source. This applies with any other ECS source.
+
+## Application still pending:
 ```
 [HttpGet("/acceptapp")]
         public async Task<dynamic> acceptapp()
@@ -73,9 +76,56 @@ Application still pending:
 You must go to "services/Roblox/Roblox.Website/Controllers/Internal" and open "BypassController.cs" and place it anywhere (near below the script).
 Next, you must restart the command prompt that is running ```dotnet run```. To do this, do CTRL+C then type in the same command. After, visit ```/acceptapp``` on the auth/application page to accept the app instantly!
 
-Roblox Main UI not loading:
+## Roblox Main UI not loading:
 
 This is simple. Edit the ```config.json``` in "services/2016-roblox-main" to match your localhost domain instead of your actual domain. For example: 
 ```"baseUrl":"https://localhost:3000/","apiFormat":"https://localhost:3000/apisite/{0}{1}"```
 You may also use ```localhost:5000``` but I recommend the port ```:3000```.
 
+## Game-server error (MODULE_NOT_FOUND)
+
+Go to the game-server command prompt (where it's running the game-servers) and run ```npm install @types/node@latest typescript@latest```.
+
+After it is finished, delete the ```node_modules``` folder andd then go to ```tsconfig.json``` and replace everything with the below text:
+```
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "target": "es2022",
+    "lib": [
+      "es2022",
+      "dom",
+      "esnext.disposable"
+    ],
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "declaration": false,
+    "allowSyntheticDefaultImports": false,
+    "strict": false
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./public",
+    "www/dist",
+    "test"
+  ]
+}
+```
+This is a new tsconfig.json because the old config uses es2016, which has packages that aren't available for es2016. This uses es2022. More reliable and has support for esnext.disposable and even more.
+
+After you've pasted that, save it and then do ```npm i``` and finally you should be able to do ```npm run build``` & ```npm run start``` if you've followed the fix accordingly.
