@@ -1,5 +1,5 @@
 <div align="center">
-  Chronos
+  <h1>Chronos</h1>
 </div>
 
 # What is Chronos?
