@@ -1,9 +1,9 @@
 <div align="center">
-  <h1>Chronos</h1>
+  <p>
+    <h1>Chronos</h1>
+    Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
+  </p>
 </div>
-
-# What is Chronos?
-Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
 
 > [!NOTE]
 > You may use this source to learn and privately host your source to friends or to a small community. We do not recommend hosting this publicly.
