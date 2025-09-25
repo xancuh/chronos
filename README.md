@@ -1,7 +1,7 @@
-<div align="center">
-    ![g](https://github.com/xancuh/xancuh/blob/main/CHR-N-S-31-07-2025.png) 
-    Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
-</div>
+
+![g](https://github.com/xancuh/xancuh/blob/main/CHR-N-S-31-07-2025.png) 
+
+Chronos is a revival based off of the ECS source, but with a little modified changes to it. This will be the most detailed tutorial on how to host Chronos on your computer or VPS from the start to publishing a whole Roblox revival with rendering.
 
 > [!NOTE]
 > You may use this source to learn and privately host your source to friends or to a small community. We do not recommend hosting this publicly.
